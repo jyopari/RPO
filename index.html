@@ -56,16 +56,16 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Jyothish Pari</a><sup>*</sup>,</span>
+                <a href="https://jyopari.github.io" target="_blank">Jyothish Pari</a><sup>*</sup>,</span>
                 <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Minyoung (Jacob) Huh</a><sup>*</sup>,</span>
+                  <a href="https://https://minyounghuh.com/" target="_blank">Minyoung Huh</a><sup>*</sup>,</span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Pulkit Agrawal</a>
+                    <a href="https://people.csail.mit.edu/pulkitag/" target="_blank">Pulkit Agrawal</a>
                   </span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">MIT<br></span>
+                    <span class="author-block">Massachusetts Institute of Technology<br></span>
                     <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
                   </div>
 
@@ -122,14 +122,33 @@
   </div>
 </section>
 
+<section class="section hero is-small is-dark">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3">Method Overview</h2>
+          <center>
+          <img src="static/images/rpo.png" alt="Mixed Video-Image Finetuning" class="center-image blend-img-background"/>
+          </center>
+          <div class="level-set has-text-justified">
+            <p>
+              We present Router Policy Optimization (RPO), a novel training mechanism for MoE within transformer models, structured in two distinct phases: router policy optimization (blue) and expert optimization (red). In the router policy optimization phase, input tokens are directed through a router policy, which determines the subset of experts to utilize. The output from these selected experts is then weighted and aggregated. The accompanying pseudocode details our alternating training algorithm, where the expectation step updates the router policy using reinforcement learning, focusing solely on router parameters. The maximization step updates the rest of the model parameters, excluding the routers’. By applying this alternative EM approach, RPO adeptly addresses the intricacies of expert collapse and the balancing of expert contributions, leading to more precise and efficient routing that significantly improves model performance.            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- Teaser video-->
-<section class="hero teaser">
+<!-- <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video poster="" id="tree" autoplay controls muted loop height="100%">
         <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
+        <!-- <source src="static/videos/banner_video.mp4"
         type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
@@ -137,7 +156,7 @@
       </h2>
     </div>
   </div>
-</section>
+</section> --> 
 <!-- End teaser video -->
 
 <!-- Paper abstract -->
@@ -148,7 +167,21 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Mixture-of-Experts (MoE) has proven to be a pivotal technique for reducing com-
+putational demands while maintaining scaling behaviors. Yet, their optimization
+intricacies and potential pitfalls remain under-explored. In this paper, we investi-
+gate challenges with router optimization in MoE, particularly within the context
+of transformers. We formalize the MoE training objective and use it to dissect
+the operational nuances of these models. We highlight key challenges including
+expert collapse, where experts converge to similar representations; monotonicity
+barriers, a requirement for a smooth linear combination of the experts; expert
+weighting dilemma, a dichotomy between the expert choice probability and expert
+weighting; and routerless-routing, where expert/attention mechanisms can learn
+to route even without explicit router training. To counteract these challenges, we
+present Router-Policy Optimization (RPO), a novel approach that combines
+expectation-maximization and policy optimization. We conduct a comprehensive
+analysis of MoE models under various scenarios to identify when these problems
+can occur and propose strategies to overcome them.
           </p>
         </div>
       </div>
@@ -159,119 +192,68 @@
 
 
 <!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
+<section class="section hero is-small is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3">Router Optimization Visualization</h2>
+          <center>
+          <img src="static/images/2d_viz-modified (3).png" alt="Router Optimization Visualization" class="center-image blend-img-background"/>
+          </center>
+          <div class="level-set has-text-justified">
+            <p>
+              We demonstrate the challenges in router optimization. In a toy scenario, experts are represented by vectors in a regression problem aimed at minimizing the distance to a red star target. The routing trajectory is visualized, contrasting the different methods’ performance. RPO successfully identifies the most effective routing, while standard optimization and variants falls short, especially evident when more than one expert is involved.           </div>
+        </div>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
     </div>
   </div>
-</div>
-</div>
 </section>
 <!-- End image carousel -->
 
 
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
+<section class="section hero is-small is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3">Expert Collapse</h2>
+          <center>
+          <img src="static/images/expert_collapse.pnd-modified.png" alt="Router Optimization Visualization" class="center-image blend-img-background" width="600" />
+          </center>
+          <div class="level-set has-text-justified">
+            <p>
+              We capture the phenomenon of expert collapse in MoE models. When routers and experts are optimized together in a conventional manner, the experts tend to converge towards eachother in their outputs. This concept is illustrated by starting with experts at optimal positions in a two-dimensional space, marked by a dashed line and circle. Over the course of training, we observe that standard optimization tends to merge the distinct expert representations, as shown by the transition from lighter to darker shades. In contrast, Router Policy Optimization (RPO) maintains the diversity of the experts, ensuring they remain true to the initial optimal assignments. We observe the effect of weight decay (wd) which prevents the norm of the router weight matrix from exploding.         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End youtube video -->
 
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
+<section class="section hero is-small is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3">GPT2 Optimal Routing Recovery</h2>
+          <center>
+          <img src="static/images/model_diff_sim_v2-modified.png" alt="Router Optimization Visualization" class="center-image blend-img-background" width="900" />
+          <img src="static/images/model_diff_sim_losses-modified.png" alt="Router Optimization Visualization" class="center-image blend-img-background" width="1000" />
+          </center>
+          <div class="level-set has-text-justified">
+            <p>
+              Here experts are fixed. We initialize a MoE model using GPT2, pre-trained on Openwebtext, comprising 4 experts. One expert is initialized with pre-trained weights, while the remaining three are set as sub-optimal experts. We only optimize for the router to highlight the failure to recover the optimal routing. On the left, the three suboptimal experts are started with random weights (Model DIFF); on the right, they are initialized with perturbed optimal weights (Model SIM).When the weights are randomly initialized, an unnormalized MoE arrives at the correct routing. However, when sub-optimal experts can partially solve the problem, standard training fails and only Router Policy Optimization (RPO) is capable of accurately of recovering the correct solution.
+            </div>
     </div>
   </div>
 </section>
-<!-- End video carousel -->
 
 
 
 
 
 
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
 
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
 
 
 <!--BibTex citation -->
