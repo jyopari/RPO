@@ -169,8 +169,7 @@
           <p>
             Mixture-of-Experts (MoE) has proven to be a pivotal technique for reducing com-
 putational demands while maintaining scaling behaviors. Yet, their optimization
-intricacies and potential pitfalls remain under-explored. In this paper, we investi-
-gate challenges with router optimization in MoE, particularly within the context
+intricacies and potential pitfalls remain under-explored. In this paper, we investigate challenges with router optimization in MoE, particularly within the context
 of transformers. We formalize the MoE training objective and use it to dissect
 the operational nuances of these models. We highlight key challenges including
 expert collapse, where experts converge to similar representations; monotonicity
@@ -242,7 +241,7 @@ can occur and propose strategies to overcome them.
           </center>
           <div class="level-set has-text-justified">
             <p>
-              Here experts are fixed. We initialize a MoE model using GPT2, pre-trained on Openwebtext, comprising 4 experts. One expert is initialized with pre-trained weights, while the remaining three are set as sub-optimal experts. We only optimize for the router to highlight the failure to recover the optimal routing. On the left, the three suboptimal experts are started with random weights (Model DIFF); on the right, they are initialized with perturbed optimal weights (Model SIM).When the weights are randomly initialized, an unnormalized MoE arrives at the correct routing. However, when sub-optimal experts can partially solve the problem, standard training fails and only Router Policy Optimization (RPO) is capable of accurately of recovering the correct solution.
+              Here experts are fixed. We initialize a MoE model using GPT2, pre-trained on Openwebtext, comprising 4 experts. One expert is initialized with pre-trained weights, while the remaining three are set as sub-optimal experts. We only optimize for the router to highlight the failure to recover the optimal routing. On the left, the three suboptimal experts are started with random weights (Model DIFF) on the right, they are initialized with perturbed optimal weights (Model SIM). When the weights are randomly initialized, an unnormalized MoE arrives at the correct routing. However, when sub-optimal experts can partially solve the problem, standard training fails and only Router Policy Optimization (RPO) is capable of accurately of recovering the correct solution.
             </div>
     </div>
   </div>
